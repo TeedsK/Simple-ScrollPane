@@ -4,7 +4,7 @@ import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.Color;
 import java.awt.Dimension;
-
+@SuppressWarnings("serial")
 /**
  * A simple class to create scrollpanes with custom widths and colors for the scroll Thumb
  * @author Teeds - Theo K
@@ -30,6 +30,7 @@ public class CleanScrollPane extends JScrollPane {
     public CleanScrollPane(JPanel body, int width) {
         this.body = body;
         this.width = width;
+        setup();
     }
 
     /**
@@ -41,6 +42,7 @@ public class CleanScrollPane extends JScrollPane {
         this.body = body;
         this.width = width;
         background = backgroundColor;
+        setup();
     }
 
     /**
@@ -54,6 +56,7 @@ public class CleanScrollPane extends JScrollPane {
         this.width = width;
         this.background = backgroundColor;
         this.thumb = scrollThumbColor;
+        setup();
     }
 
     /**
@@ -71,7 +74,6 @@ public class CleanScrollPane extends JScrollPane {
         this.getVerticalScrollBar().setPreferredSize(new Dimension(width, 2));
         this.getVerticalScrollBar().setBackground(background);
         this.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
-            
             @Override
             protected void configureScrollBarColors() {
                 this.thumbColor = thumb;
